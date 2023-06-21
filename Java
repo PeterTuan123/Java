@@ -1,0 +1,37 @@
+
+package ASM;
+
+
+public class TruongPhong extends NhanVien {
+    private double phuCap; // Phụ cấp cho trưởng phòng
+
+    // Constructor để khởi tạo đối tượng TruongPhong với các thông tin cần thiết.
+    public TruongPhong(String maNhanVien, String hoTen, double luong, double phuCap) {
+        super(maNhanVien, hoTen, luong);
+        this.phuCap = phuCap;
+    }
+
+    // Getter và Setter cho thuộc tính phuCap
+    public double getPhuCap() {
+        return phuCap;
+    }
+
+    public void setPhuCap(double phuCap) {
+        this.phuCap = phuCap;
+    }
+
+    // Ghi đè phương thức getThuNhap để tính lại thu nhập cho trưởng phòng.
+    @Override
+    public double getThuNhap() {
+        return super.getLuong() + phuCap;
+    }
+
+    // Ghi đè phương thức inThongTin để in ra thông tin của trưởng phòng.
+    @Override
+    public void inThongTin() {
+        super.inThongTin();
+        System.out.println("Phụ cấp: " + phuCap);
+        System.out.println("Tổng thu nhập: " + getThuNhap());
+    }
+}
+
